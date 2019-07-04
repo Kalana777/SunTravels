@@ -23,6 +23,7 @@ public class HotelController {
         hotel.setHotelAddress(hotelAddress);
         hotel.setHotelName(hotelName);
         hotel.setHotelTp(hotelTp);
+        hotRep.save(hotel);
 
         return "saved";
     }

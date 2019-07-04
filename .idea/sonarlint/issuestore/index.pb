@@ -9,3 +9,9 @@ U
 %src/main/java/SunAPI/model/Hotel.java,d\c\dcbeadf8f21d76edcdebc2b15e9fd3b733a9ee0d
 d
 4src/main/java/SunAPI/controller/HotelController.java,9\e\9e7ff270bf2b8b1ef3701d57f933bb7bce5ca6d1
+g
+7src/main/java/SunAPI/repository/ContractRepository.java,f\0\f06eb47bc4501cccb4cb2b99969eb17ae7e557f5
+X
+(src/main/java/SunAPI/model/Contract.java,c\5\c5925921bd41bc810d4a89adb414f6389d42032b
+g
+7src/main/java/SunAPI/controller/ContractController.java,5\6\56d1ab87d5f06c0727fea343cbb121fb856608dd
