@@ -15,3 +15,7 @@ X
 (src/main/java/SunAPI/model/Contract.java,c\5\c5925921bd41bc810d4a89adb414f6389d42032b
 g
 7src/main/java/SunAPI/controller/ContractController.java,5\6\56d1ab87d5f06c0727fea343cbb121fb856608dd
+X
+(src/main/java/SunAPI/model/RoomType.java,7\8\7838d850750101e79bc37e9da40bed89e7537c39
+g
+7src/main/java/SunAPI/repository/RoomTypeRepository.java,d\f\dfdebe9fe3e469c2db3aecd7edea0da776bacebb

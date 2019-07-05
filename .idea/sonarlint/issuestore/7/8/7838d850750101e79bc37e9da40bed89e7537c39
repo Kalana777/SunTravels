@@ -1,0 +1,8 @@
+
+Vsquid:S1068"3Remove this unused "numberAvailable" private field.(³¾¯¯üÿÿÿÿ8¹‘¤Ş»-
+Ksquid:S1068"-Remove this unused "maxAdults" private field.(†ØÎ¼8ñ…ùİ»-
+Fsquid:S1068"(Remove this unused "cost" private field.(ëëõâ8‰€ªŞ»-
+Tsquid:S1068"1Remove this unused "numberOfRooms" private field.(é›áóÿÿÿÿÿ8¹‘¤Ş»-
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÎÎˆ
+Nsquid:S1068"0Remove this unused "roomTypeName" private field.(å¯äô8‘Ğ¡Ş»-
+Qsquid:S1068".Remove this unused "contractID" private field.( ÇŒÖûÿÿÿÿ8ÄóÒŞ»-

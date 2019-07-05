@@ -1,10 +1,7 @@
 package SunAPI.controller;
 
 import SunAPI.Services.HotelService;
-import SunAPI.model.Contract;
-import SunAPI.model.CurrentContract;
-import SunAPI.model.Hotel;
-import SunAPI.model.RoomType;
+import SunAPI.model.*;
 import SunAPI.repository.ContractRepository;
 import SunAPI.repository.CurrentContractRepo;
 import SunAPI.repository.HotelRepository;
@@ -16,15 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 @CrossOrigin(origins ="*", allowedHeaders = "*")
-@RequestMapping(path="/contract")
-public class ContractController {
-
-    ArrayList ar = new ArrayList<>();
+@RequestMapping(path="/contractForm")
+public class FormController {
 
     @Autowired
     private HotelRepository hotRep;
@@ -38,31 +31,30 @@ public class ContractController {
     @Autowired
     private CurrentContractRepo currContRep;
 
-
     private HotelService hotService = new HotelService();
 
-
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<Contract> getAllContracts() {
+    public @ResponseBody
+    Iterable<Contract> getAllContracts() {
         // This returns a JSON or XML with the users
         return contractRep.findAll();
     }
 
     @PostMapping(path ="/newHotel")
-    public @ResponseBody String addContract(/*@RequestParam Integer hotelID,*/ @RequestParam @DateTimeFormat(pattern="MM/dd/yyyy") Date startDate, @RequestParam @DateTimeFormat(pattern="MM/dd/yyyy") Date endDate, @RequestParam Float markup, @RequestParam ArrayList<RoomType> roomTypeDetails, @RequestParam String regNo, @RequestParam String hotelName, @RequestParam String hotelAddress, @RequestParam Integer hotelTp, @RequestParam String province){
+    public @ResponseBody String addContract(@RequestBody Form form){
 
         Hotel hot = new Hotel();
-        hot.setRegNo(regNo);
-        hot.setProvince(province);
-        hot.setHotelAddress(hotelAddress);
-        hot.setHotelName(hotelName);
-        hot.setHotelTp(hotelTp);
+        hot.setRegNo(form.getRegNo());
+        hot.setProvince(form.getProvince());
+        hot.setHotelAddress(form.getHotelAddress());
+        hot.setHotelName(form.getHotelName());
+        hot.setHotelTp(form.getHotelTp());
         hotRep.save(hot);
 
         Contract cont = new Contract();
-        cont.setEndDate(endDate);
-        cont.setStartDate(startDate);
-        cont.setMarkup(markup);
+        cont.setEndDate(form.getEndDate());
+        cont.setStartDate(form.getStartDate());
+        cont.setMarkup(form.getMarkup());
         cont.setHotelID(hot.getHotelID());
         contractRep.save(cont);
 
@@ -76,8 +68,8 @@ public class ContractController {
             currContRep.updateCurrentContract(cont.getContractID(), hot.getHotelID());
         }
 
-        for (RoomType roomType: roomTypeDetails) {
-            //roomType.setContractID(cont.getContractID());
+        for (RoomType roomType: form.getRoomTypeDetails()) {
+            roomType.setContractID(cont.getContractID());
             roomTypeRep.save(roomType);
         }
 
@@ -85,5 +77,4 @@ public class ContractController {
 
         return "Saved";
     }
-
 }
