@@ -4,7 +4,7 @@ package SunAPI.model;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "hotel")
+@Table(name = "hotel")
 public class Hotel {
 
     @Id

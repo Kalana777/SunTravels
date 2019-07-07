@@ -1,7 +1,12 @@
 package SunAPI.model;
 
+
+
+
 import javax.persistence.*;
+
 import java.util.Date;
+
 
 
 @Entity

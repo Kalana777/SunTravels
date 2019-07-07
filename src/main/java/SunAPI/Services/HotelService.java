@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HotelService  {
 
     @Autowired
@@ -19,23 +21,11 @@ public class HotelService  {
              i = currContRep.currentContractDuplicateCheck(hot.getHotelID());
 
             return i;
-
-
         }catch(NullPointerException e){
             System.out.println("caught");
         }
-
-        /*Integer i =currContRep.currentContractDuplicateCheck(hot.getHotelID());
-
-
-        if (i ==null){
-            System.out.println("doestn exist");
-            return null;
-        }
-
-            return i;
-
-*/
         return i;
     }
+
+
 }

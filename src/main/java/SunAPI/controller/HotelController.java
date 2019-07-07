@@ -29,9 +29,15 @@ public class HotelController {
     }
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<Hotel> getAllUsers() {
+    public @ResponseBody Iterable<Hotel> getAllHotels() {
         // This returns a JSON or XML with the users
         return hotRep.findAll();
+    }
+
+    @GetMapping(path="/allNames")
+    public @ResponseBody Iterable<String> getAllHotelNames() {
+        // This returns a JSON or XML with the users
+        return hotRep.getAllHotelNames();
     }
 
 

@@ -1,11 +1,15 @@
 package SunAPI.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Form {
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date startDate;
+    @DateTimeFormat (pattern="yyyy-MM-dd")
     private Date endDate;
     private Float markup;
     private ArrayList<RoomType> roomTypeDetails;

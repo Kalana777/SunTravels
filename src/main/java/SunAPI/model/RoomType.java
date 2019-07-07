@@ -1,5 +1,6 @@
 package SunAPI.model;
 
+
 import javax.persistence.*;
 
 @Entity
