@@ -10,9 +10,10 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class SearchService {
 
-    public ArrayList<SearchResult> filterResults(ArrayList<SearchResult> sr, SearchForm sf){
-
-        for(SearchResult results: sr){
+    public Iterable<SearchResult> filterResults(Iterable<SearchResult> availableOptions, SearchForm sf){
+        ArrayList<SearchResult> sr = new ArrayList<>();
+        for(SearchResult results: availableOptions){
+            sr.add(results);
             if(!results.getProvince().equals( sf.getProvince())){
                 sr.remove(results);
             }
