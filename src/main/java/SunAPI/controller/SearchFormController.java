@@ -2,12 +2,10 @@ package SunAPI.controller;
 
 
 import SunAPI.Services.SearchService;
+import SunAPI.model.FrontEndResult;
 import SunAPI.model.SearchForm;
 import SunAPI.model.SearchResult;
-import SunAPI.model.SimpleModel;
 import SunAPI.repository.HotelRepository;
-//import SunAPI.repository.SearchRepository;
-//import SunAPI.repository.SearchRepository;
 import SunAPI.repository.SearchRepository;
 import com.sun.corba.se.spi.ior.ObjectKey;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,22 +34,17 @@ public class SearchFormController {
     @Autowired
     SearchRepository searchRep;
 
-    @GetMapping(path ="/newSearch")
-    public @ResponseBody ArrayList<SearchResult> getAllOptionss(SearchForm SF) throws ParseException {
+    @PostMapping(path ="/newSearch")
+    public @ResponseBody ArrayList<FrontEndResult> getAllOptions(@RequestBody SearchForm SF) {
 
-        ArrayList<SearchResult> ss =new ArrayList<>();
-        for(Object[] s: searchRep.getAllOptions()) {
-            SearchResult srs = new SearchResult((Integer) s[0], (Integer)s[1],(Integer) s[2],(String)s[3],(Float)s[4],(Integer)s[5],(Integer) s[6], (Integer) s[7],(String)s[8],(String) s[9],(Date) s[10],(Date)s[11],(Float)s[12]);
-            ss.add(srs);
-
-        }
+        searchServ.createSearchResultsObjects(searchRep.getAllOptions());
 
 
-        searchServ.filterResults(ss, SF);
+        ArrayList<SearchResult> ss =searchServ.filterResultsbyProvinceDate(searchServ.createSearchResultsObjects(searchRep.getAllOptions()), SF);
 
 
-        return ss;
-        /*hotRep.getAllOptions();*/
+
+        return searchServ.filterResultsByRoomAvailability(searchServ.createFrontEndResultsArray(ss), SF);
 
     }
 }

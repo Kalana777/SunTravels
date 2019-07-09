@@ -2,7 +2,6 @@ package SunAPI.repository;
 
 import SunAPI.model.Hotel;
 import SunAPI.model.SearchResult;
-import SunAPI.model.SimpleModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,6 +17,5 @@ public interface SearchRepository extends CrudRepository<Hotel, Integer> {
     @Query( value= sqlQuery, nativeQuery = true)
     public Iterable<Object[]> getAllOptions();
 
-    @Query(value = "SELECT new SunAPI.model.SimpleModel(cc.contractid, h.hotelid) FROM current_contract cc JOIN hotel h;", nativeQuery = true)
-    public Iterable<SimpleModel> getSimpleModels();
+
 }

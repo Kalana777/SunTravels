@@ -7,6 +7,7 @@ public class SearchForm {
     private Integer singleRooms;
     private Integer doubleRooms;
     private Integer tripleRooms;
+    private Integer quadrupleRooms;
     private String province;
     private Date checkIn;
     private Date checkOut;
@@ -61,11 +62,12 @@ public class SearchForm {
         this.checkOut = checkOut;
     }
 
-//    public Integer getNights() {
-//        return nights;
-//    }
-//
-//    public void setNights(Integer nights) {
-//        this.nights = nights;
-//    }
+    public Integer getQuadrupleRooms() {
+        return  quadrupleRooms;
+    }
+
+    public void setQuadrupleRooms(Integer quadrupleRooms) {
+        this.quadrupleRooms = quadrupleRooms;
+    }
+
 }
